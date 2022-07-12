@@ -2,7 +2,7 @@ resource "argocd_application" "test_application" {
   metadata {
     name = "test-application"
     annotations = {
-      # "argocd-image-updater.argoproj.io/image-list" = "gcr.io/heptio-images/ks-guestbook-demo:^0.1"
+      "argocd-image-updater.argoproj.io/image-list" = "docker.io/ryanwholey/test-app-helm-remote"
     }
   }
 
