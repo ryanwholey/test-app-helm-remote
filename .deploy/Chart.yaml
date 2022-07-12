@@ -6,6 +6,6 @@ description: An application using a remote parent Helm chart dependency
 type: application
 dependencies:
 - name: app-helm-chart
-  version: "0.0.1"
+  version: "0.0.2"
   # repository: file://../../app-helm-chart
   repository: "https://ryanwholey.github.io/helm-charts/"
