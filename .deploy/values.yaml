@@ -2,7 +2,7 @@ app-helm-chart:
   name: test-application
   image:
     tag: latest
-    repository: nginx
+    repository: docker.io/ryanwholey/test-app-helm-remote
   app:
     deployment:
       port: 80
