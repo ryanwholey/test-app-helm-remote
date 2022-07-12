@@ -1,0 +1,10 @@
+app-helm-chart:
+  name: test-application
+  image:
+    tag: latest
+    repository: nginx
+  app:
+    deployment:
+      port: 80
+    service:
+      type: NodePort

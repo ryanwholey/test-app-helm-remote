@@ -1,0 +1,11 @@
+apiVersion: v1
+version: 0.0.1
+appVersion: 0.0.1
+name: test-app
+description: An application using a remote parent Helm chart dependency
+type: application
+dependencies:
+- name: app-helm-chart
+  version: "0.0.1"
+  # repository: file://../../app-helm-chart
+  repository: "https://ryanwholey.github.io/helm-charts/"
