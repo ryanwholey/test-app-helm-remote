@@ -16,6 +16,26 @@ resource "argocd_application" "test_application" {
       repo_url        = "https://github.com/ryanwholey/test-app-helm-remote"
       path            = ".deploy"
       target_revision = "HEAD"
+
+      helm {
+        values = yamlencode({
+          "app-helm-chart" = {
+            name = "test-application"
+            image = {
+              tag        = "18201bea378300e498c1706b89b589a5a3ba2ab7"
+              repository = "docker.io/ryanwholey/test-app-helm-remote"
+            }
+            app = {
+              deployment = {
+                port = 80
+              }
+              service = {
+                type = "NodePort"
+              }
+            }
+          }
+        })
+      }
     }
 
     project = "default"
@@ -37,6 +57,16 @@ resource "argocd_application" "test_application" {
       }
       # https://argo-cd.readthedocs.io/en/stable/user-guide/sync-options/
       sync_options = []
+    }
+
+    ignore_difference {
+      group = "apps"
+      kind  = "Deployment"
+      name  = "test-application"
+
+      jq_path_expressions = [
+        ".spec.template.spec.containers[0].image",
+      ]
     }
   }
 }
