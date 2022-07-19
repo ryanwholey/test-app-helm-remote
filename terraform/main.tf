@@ -22,7 +22,6 @@ resource "argocd_application" "test_application" {
           "app-helm-chart" = {
             name = "test-application"
             image = {
-              tag        = "18201bea378300e498c1706b89b589a5a3ba2ab7"
               repository = "docker.io/ryanwholey/test-app-helm-remote"
             }
             app = {
