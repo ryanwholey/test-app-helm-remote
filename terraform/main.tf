@@ -22,18 +22,19 @@ resource "argocd_application" "test_application" {
           "app-helm-chart" = {
             name = "test-application"
             image = {
-              repository = "docker.io/ryanwholey/test-app-helm-remote"
+              name = "docker.io/ryanwholey/test-app-helm-remote"
             }
             app = {
               deployment = {
                 port = 80
               }
               service = {
-                type = "NodePort"
+                type = "ClusterIP"
               }
             }
           }
         })
+        value_files = ["image.yml"]
       }
     }
 
@@ -58,14 +59,14 @@ resource "argocd_application" "test_application" {
       sync_options = []
     }
 
-    ignore_difference {
-      group = "apps"
-      kind  = "Deployment"
-      name  = "test-application"
+    # ignore_difference {
+    #   group = "apps"
+    #   kind  = "Deployment"
+    #   name  = "test-application"
 
-      jq_path_expressions = [
-        ".spec.template.spec.containers[0].image",
-      ]
-    }
+    #   jq_path_expressions = [
+    #     ".spec.template.spec.containers[0].image",
+    #   ]
+    # }
   }
 }
