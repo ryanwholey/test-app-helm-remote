@@ -29,7 +29,7 @@ resource "argocd_application" "test_application" {
                 port = 80
               }
               service = {
-                type = "ClusterIP"
+                type = "NodePort"
               }
             }
           }
