@@ -1,3 +1,3 @@
 test-app-helm:
   image:
-    name: cat
+    name: 96dba24ded91082745e7d78505197d9d1100f719
