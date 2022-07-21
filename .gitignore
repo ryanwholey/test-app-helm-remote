@@ -1,4 +1,2 @@
-.deploy/charts
-.deploy/requirements.lock
 application.yaml
 .env
