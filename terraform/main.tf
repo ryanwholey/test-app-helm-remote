@@ -58,15 +58,5 @@ resource "argocd_application" "test_application" {
       # https://argo-cd.readthedocs.io/en/stable/user-guide/sync-options/
       sync_options = []
     }
-
-    # ignore_difference {
-    #   group = "apps"
-    #   kind  = "Deployment"
-    #   name  = "test-application"
-
-    #   jq_path_expressions = [
-    #     ".spec.template.spec.containers[0].image",
-    #   ]
-    # }
   }
 }
