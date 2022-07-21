@@ -1,3 +1,3 @@
-test-app-helm:
+app-helm-chart:
   image:
-    name: 0852f1695a8c6a358839a6facf95187de741aafd
+    name: 9220f64af5cba50e5a2b9c1345c3c5da8f2340a7
