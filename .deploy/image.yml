@@ -1,3 +1,0 @@
-app-helm-chart:
-  image:
-    tag: fe1f4de498424764adf49504361e1dbb061fd9dc
