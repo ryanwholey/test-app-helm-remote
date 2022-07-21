@@ -30,12 +30,14 @@ jobs:
       - uses: actions/checkout@v3
         with:
           ref: release
-      - uses: freenet-actions/setup-yq@v2
+      - name: Install yq
+        uses: freenet-actions/setup-yq@v2
         with:
           version: 4.9.1
-      - run: |
-          yq e --null-input '.app-helm-chart.image.tag = "${{ github.sha }}"' > .deploy/image.yml
-      - uses: EndBug/add-and-commit@v9
+      - name: Update image
+        run: yq e --null-input '.app-helm-chart.image.tag = "${{ github.sha }}"' > .deploy/image.yml
+      - name: Commit to release branch
+        uses: EndBug/add-and-commit@v9
         with:
           add: '.'
           message: GitHub Actions updating image version to ${{ github.sha }}
