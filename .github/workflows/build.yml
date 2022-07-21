@@ -32,7 +32,7 @@ jobs:
         with:
           version: 4.9.1
       - run: |
-          yq e --null-input '.app-helm-chart.image.name = "${{ github.sha }}"' > .deploy/image.yml
+          yq e --null-input '.app-helm-chart.image.tag = "${{ github.sha }}"' > .deploy/image.yml
       - uses: EndBug/add-and-commit@v9
         with:
           add: '.deploy/image.yml'
