@@ -28,6 +28,8 @@ jobs:
     needs: docker
     steps:
       - uses: actions/checkout@v3
+        with:
+          ref: release
       - uses: freenet-actions/setup-yq@v2
         with:
           version: 4.9.1
@@ -38,4 +40,3 @@ jobs:
           add: '.deploy/image.yml'
           message: GitHub Actions updating image version to ${{ github.sha }}
           push: true
-          new_branch: release
