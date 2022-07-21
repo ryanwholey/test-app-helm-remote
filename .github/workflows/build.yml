@@ -38,3 +38,4 @@ jobs:
           add: '.deploy/image.yml'
           message: GitHub Actions updating image version to ${{ github.sha }}
           push: true
+          new_branch: release
