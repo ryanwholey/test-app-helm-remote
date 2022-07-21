@@ -28,7 +28,7 @@ jobs:
     needs: docker
     steps:
       - uses: actions/checkout@v3
-      - uses: chrisdickinson/setup-yq@latest
+      - uses: freenet-actions/setup-yq@v2
         with:
-          yq-version: 4.9.1
+          version: 4.9.1
       - run: yq e '.app-helm-chart.image.tag |= env(foo)' .deploy/image.yml
