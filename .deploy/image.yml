@@ -1,0 +1,3 @@
+app-helm-chart:
+  image:
+    name: cbafc5330f15859b5a2253003378be891b0de604
