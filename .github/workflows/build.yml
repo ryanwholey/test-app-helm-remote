@@ -37,6 +37,6 @@ jobs:
           yq e --null-input '.app-helm-chart.image.tag = "${{ github.sha }}"' > .deploy/image.yml
       - uses: EndBug/add-and-commit@v9
         with:
-          add: '.deploy/image.yml'
+          add: '.'
           message: GitHub Actions updating image version to ${{ github.sha }}
           push: true
