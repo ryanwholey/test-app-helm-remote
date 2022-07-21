@@ -2,10 +2,10 @@ resource "argocd_application" "test_application" {
   metadata {
     name = "test-application"
     annotations = {
-      "argocd-image-updater.argoproj.io/image-list"                           = "test-app-helm-remote=docker.io/ryanwholey/test-app-helm-remote"
-      "argocd-image-updater.argoproj.io/test-app-helm-remote.update-strategy" = "latest"
-      "argocd-image-updater.argoproj.io/test-app-helm-remote.helm.image-name" = "app-helm-chart.image.name"
-      "argocd-image-updater.argoproj.io/test-app-helm-remote.helm.image-tag"  = "app-helm-chart.image.tag"
+      # "argocd-image-updater.argoproj.io/image-list"                           = "test-app-helm-remote=docker.io/ryanwholey/test-app-helm-remote"
+      # "argocd-image-updater.argoproj.io/test-app-helm-remote.update-strategy" = "latest"
+      # "argocd-image-updater.argoproj.io/test-app-helm-remote.helm.image-name" = "app-helm-chart.image.name"
+      # "argocd-image-updater.argoproj.io/test-app-helm-remote.helm.image-tag"  = "app-helm-chart.image.tag"
     }
   }
 
