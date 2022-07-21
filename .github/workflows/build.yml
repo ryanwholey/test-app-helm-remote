@@ -31,4 +31,9 @@ jobs:
       - uses: freenet-actions/setup-yq@v2
         with:
           version: 4.9.1
-      - run: yq e '.app-helm-chart.image.tag |= env(foo)' .deploy/image.yml
+      - run: yq e '.app-helm-chart.image.tag |= ${{ github.sha }}' .deploy/image.yml
+      - uses: EndBug/add-and-commit@v9 # You can change this to use a specific version.
+        with:
+          add: '.deploy/image.yml'
+          message: GitHub Actions updating image version to ${{ github.sha }}
+          push: true
